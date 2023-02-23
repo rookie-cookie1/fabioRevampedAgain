@@ -3,7 +3,6 @@ from PIL import Image,ImageTk
 import tkinter as tk
 #window setup code
 win = tk.Tk()
-
 canvas = Canvas(win, width = 0, height = 0)
 canvas.pack(fill=BOTH, expand=True)
 img2 = Image.open("loogey.png")
@@ -13,10 +12,10 @@ canvas.create_image(10,10,anchor=NW,image=img2)
 
 button = tk.Button(
     text="Play",
-    width=200,
-    height=10,
+    width=60,
+    height=3,
     bg="brown",
     fg="black",
 )
-button.pack(fill=BOTH, expand=True)
+button.pack()
 win.mainloop()
