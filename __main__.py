@@ -1,32 +1,35 @@
 from tkinter import * 
 from PIL import Image,ImageTk
 import tkinter as tk
-
-
-menuButtons = ['Play Game', 'Settings', 'Options']
-for index in len(menuButtons):
-    tk.Button(
-        text = menuButtons[index]
-        width = 60
-        height = 3
-        
-    ).pack
-
 #window setup code
 win = tk.Tk()
-win.geometry("1817x900")
+win.geometry("1817x860")
 win.resizable(False, False)
-mainMenuImg = tk.PhotoImage(file = 'game_menu.png')
-menuBackGround = Label(win, i = mainMenuImg)
-button = tk.Button(
-    text="Play",
-    width=60,
-    height=3,
-    bg="brown",
-    fg="black",
-)
-menuBackGround.pack()
 
-button.pack()
-button.place(x = 720, y = 500)
+def MainMenu():
+    global win
+    global button
+    menuBackGround = Label(win, i = mainMenuImg)
+    menuBackGround.pack()
+    YposSpace = 60
+    adjustedY = 540
+    for item in menuButtons:
+        button = tk.Button(
+            win,
+            text = item,
+            width=60,
+            height=3,
+            bg="brown",
+            fg="black",
+        )
+        button.pack()
+        adjustedY =  adjustedY - YposSpace
+        print(str(adjustedY))
+        button.place(x = 720, y = adjustedY)
+
+mainMenuImg = tk.PhotoImage(file = 'game_menu.png')
+menuButtons = ['Exit Game', 'Options', 'Play Game']
+MainMenu()
+
+
 win.mainloop()
