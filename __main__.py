@@ -6,7 +6,15 @@ win = tk.Tk()
 win.geometry("1817x860")
 win.resizable(False, False)
 def mainMenuFunction(bName):
-    print(bName)
+    if bName == 2:
+        exit()
+    elif bName == 1:
+        pass
+    elif bName == 0:
+        pass
+    else:
+        print('ERROR: NO MATCHING BUTTON FUNCTION - PLEASE DEFINE IN "mainMenuFunction()"')
+
 def MainMenu():
     #Calling this function brings up the visual main menu
     #The main menu layout is contained in this function
@@ -16,18 +24,41 @@ def MainMenu():
     menuBackGround.pack()
     YposSpace = 60
     adjustedY = 540
-    playGame =  tk.Button(
+    xPos = 720
+    exit =  tk.Button(
         win,
-        text = menuButtons[i],
+        text = 'Exit',
         width = 60,
         height = 3,
         bg = "brown",
         fg = "black",
-        command=lambda: mainMenuFunction(str())
-    )
+        command=lambda: mainMenuFunction(2)
+    ).place(x = 720, y = adjustedY)
+    adjustedY = adjustedY - YposSpace
+    options = tk.Button(
+        win,
+        text = 'Options',
+        width = 60,
+        height = 3,
+        bg = "brown",
+        fg = "black",
+        command=lambda: mainMenuFunction(1)
+    ).place(x = 720, y = adjustedY)
+    adjustedY = adjustedY - YposSpace
+    playGame = tk.Button(
+        win,
+        text = 'Play Game',
+        width = 60,
+        height = 3,
+        bg = "brown",
+        fg = "black",
+        command=lambda: mainMenuFunction(0)
+    ).place(x = 720, y = adjustedY)
 
 
 mainMenuImg = tk.PhotoImage(file = 'game_menu.png')
+mainMenuBDic = {}
+mainMenuBName = ['Play Game', 'Options', 'Exit']
 MainMenu()
 
 
