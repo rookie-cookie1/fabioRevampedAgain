@@ -10,8 +10,10 @@ def mainMenuFunction(bName):
         exit()
     elif bName == 1:
         pass
+        print('Haha')
     elif bName == 0:
         pass
+        print('Bruh')
     else:
         print('ERROR: NO MATCHING BUTTON FUNCTION - PLEASE DEFINE IN "mainMenuFunction()"')
 
